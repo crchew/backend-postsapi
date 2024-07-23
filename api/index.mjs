@@ -5,7 +5,7 @@ import { dirname } from "path";
 import pkg from "pg";
 import cors from "cors";
 const { Pool } = pkg;
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const __filename = fileURLToPath(import.meta.url);
