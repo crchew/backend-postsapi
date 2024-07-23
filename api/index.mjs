@@ -4,13 +4,13 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import pkg from "pg";
 import cors from "cors";
-const { Pool } = pkg;
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
+const { Pool } = pkg;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -292,17 +292,18 @@ app.delete("/blogposts/:id", authenticateToken, async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/"));
+// });
 
-app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "/404.html"));
-});
+// app.use((req, res) => {
+//   res.status(404).sendFile(path.join(__dirname, "/404.html"));
+// });
 
-app.listen(3000, () => {
-  console.log("App is listening on port 3000");
-});
+// Removing static file serving 
+// app.listen(3000, () => {
+//   console.log("App is listening on port 3000");
+// });
 
 export default (req, res) => {
   app(req, res);
