@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node api/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,5 +18,6 @@
     "path": "^0.12.7",
     "pg": "^8.12.0",
     "url": "^0.11.3"
-  }
+  },
+  "type": "module"
 }
