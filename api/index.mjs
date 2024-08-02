@@ -1,7 +1,7 @@
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+// import path from "path";
+// import { fileURLToPath } from "url";
+// import { dirname } from "path";
 import pkg from "pg";
 import cors from "cors";
 import bcrypt from "bcryptjs";
@@ -94,7 +94,7 @@ app.post("/login", async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .json({ message: "Username or password incorrect" });
+        .json({ message: "Incorrect username" });
     }
 
     const passwordIsValid = await bcrypt.compare(
@@ -103,7 +103,7 @@ app.post("/login", async (req, res) => {
     );
 
     if (!passwordIsValid) {
-      return res.status(400).json({ auth: false, token: null });
+      return res.status(400).json({ auth: false, token: null, message: "Incorrect password" });
     }
 
     // Create token
