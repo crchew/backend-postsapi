@@ -159,7 +159,7 @@ app.post("/refresh-token", (req, res) => {
 
     const newToken = jwt.sign({ username: user.username }, SECRET_KEY, {
       algorithm: "HS384",
-      expiresIn: "1h",
+      expiresIn: "1d",
     });
 
     res.status(200).json({ token: newToken });
